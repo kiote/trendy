@@ -19,3 +19,9 @@ graph TD;
 poetry install
 poetry run python app.py
 ```
+
+## Frontend
+
+* HTMX
+* TailwindCSS
+* DaisyUI
