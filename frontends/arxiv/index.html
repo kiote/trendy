@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/output.css">
+    <title>Hello World with HTMX</title>
+    <!-- Include HTMX -->
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+</head>
+<body>
+    <h1 class="text-3xl font-bold underline">Hello, World!</h1>
+    <button hx-get="http://127.0.0.1:5000/arxiv/affective_computing" hx-target="#content">Click me!</button>
+    <div id="content"></div>
+</body>
+</html>
