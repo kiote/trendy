@@ -1,0 +1,50 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Get trends data",
+    "description": "Retrieves trends data from different sources.",
+    "version": "v1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://github-trendy.fly.dev/"
+    }
+  ],
+  "paths": {
+    "/arxiv/affective_computing": {
+      "get": {
+        "description": "Get affective computing latest papers",
+        "operationId": "GetAffectivePapers",
+        "parameters": [],
+        "deprecated": false
+      }
+    },
+    "/daily": {
+      "get": {
+        "description": "Get daily trends",
+        "operationId": "GetDailyTrends",
+        "parameters": [],
+        "deprecated": false
+      }
+    },
+    "/weekly": {
+      "get": {
+        "description": "Get weekly trends",
+        "operationId": "GetWeeklyTrends",
+        "parameters": [],
+        "deprecated": false
+      }
+    },
+    "/monthly": {
+      "get": {
+        "description": "Get monthly trends",
+        "operationId": "GetMonthlyTrends",
+        "parameters": [],
+        "deprecated": false
+      }
+    }
+  },
+  "components": {
+    "schemas": {}
+  }
+}
