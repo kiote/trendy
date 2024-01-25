@@ -1,7 +1,7 @@
 # simple_api.py
 from flask import Flask, jsonify
-from trends import get_trending_repos
-from arxiv import fetch_archive
+from data_sources.trends import get_trending_repos
+from data_sources.arxiv import fetch_archive
 
 app = Flask(__name__)
 
