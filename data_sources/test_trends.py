@@ -1,7 +1,6 @@
 import unittest
 from trends import parse_trending_repos
 
-
 class TestGithubTrendAnalysis(unittest.TestCase):
 
     def test_parse_trending_repos(self):
@@ -26,12 +25,12 @@ class TestGithubTrendAnalysis(unittest.TestCase):
                 'name': 'repo1',
                 'description': 'Description 1',
                 'stars_per_day': 123,
-                'language': 'Language 1'
+                'language': 'Language 1',
+                'url': 'https://github.com/owner1/repo1'  # Add the URL here
             }
         ]
         result = parse_trending_repos(sample_html)
         self.assertEqual(result, expected_result)
-
 
 if __name__ == '__main__':
     unittest.main()
