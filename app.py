@@ -1,6 +1,7 @@
 # simple_api.py
 from flask import Flask, jsonify
 from trends import get_trending_repos
+from arxiv import fetch_archive
 
 app = Flask(__name__)
 
@@ -16,6 +17,10 @@ def weekly():
 @app.route('/monthly', methods=['GET'])
 def monthly():
     return jsonify(get_trending_repos(since='monthly'))
+
+@app.route('/arxiv/affective_computing', methods=['GET'])
+def arxiv_affective_computing():
+    return jsonify(fetch_archive(key_words='affective computing'))
 
 if __name__ == '__main__':
     app.run(debug=True)

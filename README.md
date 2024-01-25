@@ -12,3 +12,10 @@ graph TD;
     C -->|Formatted Email| D[Email Notification System]
     D --> E[User's Email]
 ```
+
+## How to use
+
+```
+poetry install
+poetry run python app.py
+```
