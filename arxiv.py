@@ -10,6 +10,8 @@ def fetch_archive(key_words='affective computing', max_results=20):
     query_params = {
         "search_query": f'cat:cs.* AND (ti:{formatted_search_term} OR abs:{formatted_search_term})',
         "start": 0,
+        "sortBy": "submittedDate",
+        "sortOrder": "descending",
         "max_results": max_results
     }
 
