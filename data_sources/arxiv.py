@@ -2,7 +2,6 @@
 import requests
 import xml.etree.ElementTree as ET
 import os
-import json
 import logging
 import http.client as http_client
 from datetime import datetime
@@ -120,6 +119,9 @@ def extract_goals_and_results(summary):
     
 def fetch_archive(key_words='affective computing', max_results=2):
     """ Main function to fetch archives, either from cache or from ArXiv. """
+    if API_KEY is None or API_KEY == '':
+        print("OPENAI_API_KEY environment variable not set.")
+        return []
     cache_key = get_cache_key(key_words, max_results)
 
     if is_cached(cache_key):
