@@ -1,9 +1,11 @@
 # simple_api.py
 from flask import Flask, jsonify
+from flask_cors import CORS
 from data_sources.trends import get_trending_repos
 from data_sources.arxiv import fetch_archive
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/')
 @app.route('/daily', methods=['GET'])

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/output.css">
+    <title>Hello World with HTMX</title>
+    <!-- Include HTMX -->
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+</head>
+<body>
+    <div class="overflow-x-auto">
+        <table id="json-table" class="table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Authors</th>
+                    <th>Published</th>
+                    <th>Summary</th>
+                    <th>Link</th>
+                </tr>
+            </thead>
+            <tbody hx-get="http://127.0.0.1:5000/arxiv/affective_computing" hx-trigger="load" hx-ext="json-to-table">
+                <!-- Rows will be inserted here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        htmx.defineExtension('json-to-table', {
+            transformResponse: function (text, xhr, elt) {
+                var json = JSON.parse(text);
+                var html = json.map(function (entry) {
+                    var authors = entry.authors.join(", ");
+                    return '<tr>' +
+                        '<td>' + entry.title + '</td>' +
+                        '<td>' + authors + '</td>' +
+                        '<td>' + entry.published + '</td>' +
+                        '<td>' + entry.summary + '</td>' +
+                        '<td><a href="' + entry.link + '">Link</a></td>' +
+                        '</tr>';
+                }).join('');
+                return html;
+            }
+        });
+    </script>
+
+</body>
+</html>
