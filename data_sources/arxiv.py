@@ -3,7 +3,7 @@ import xml.etree.ElementTree as ET
 
 BASE_ARXIV_URL = 'http://export.arxiv.org/api/query?'
 
-def fetch_archive(key_words='affective computing', max_results=20):
+def fetch_archive(key_words='affective computing', max_results=2):
     formatted_search_term = f'"{key_words}"'
 
     # Define the query parameters with the formatted search term
