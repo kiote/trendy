@@ -9,20 +9,22 @@
     <script src="https://unpkg.com/htmx.org@1.9.10"></script>
 </head>
 <body>
-    <table id="json-table" border="1">
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Authors</th>
-                <th>Published</th>
-                <th>Summary</th>
-                <th>Link</th>
-            </tr>
-        </thead>
-        <tbody hx-get="http://127.0.0.1:5000/arxiv/affective_computing" hx-trigger="load" hx-ext="json-to-table">
-            <!-- Rows will be inserted here -->
-        </tbody>
-    </table>
+    <div class="overflow-x-auto">
+        <table id="json-table" class="table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Authors</th>
+                    <th>Published</th>
+                    <th>Summary</th>
+                    <th>Link</th>
+                </tr>
+            </thead>
+            <tbody hx-get="http://127.0.0.1:5000/arxiv/affective_computing" hx-trigger="load" hx-ext="json-to-table">
+                <!-- Rows will be inserted here -->
+            </tbody>
+        </table>
+    </div>
 
     <script>
         htmx.defineExtension('json-to-table', {

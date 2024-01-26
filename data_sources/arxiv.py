@@ -1,9 +1,21 @@
 import requests
 import xml.etree.ElementTree as ET
+from datetime import datetime
 
 BASE_ARXIV_URL = 'http://export.arxiv.org/api/query?'
 
+# Cache for storing results
+cache = {}
+
 def fetch_archive(key_words='affective computing', max_results=2):
+    # Get current date to include in the cache key
+    current_date = datetime.now().strftime("%Y-%m-%d")
+    cache_key = (current_date, key_words, max_results)
+    
+    # Check if the query is in the cache
+    if cache_key in cache:
+        return cache[cache_key]
+    
     formatted_search_term = f'"{key_words}"'
 
     # Define the query parameters with the formatted search term
@@ -34,5 +46,8 @@ def fetch_archive(key_words='affective computing', max_results=2):
             "link": entry.find('{http://www.w3.org/2005/Atom}id').text
         }
         papers.append(paper)
+
+    # Update the cache
+    cache[cache_key] = papers
 
     return papers
