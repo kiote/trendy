@@ -117,7 +117,7 @@ def extract_goals_and_results(summary):
         print("Error communicating with ChatGPT API")
         return "Goals and results extraction failed."
     
-def fetch_archive(key_words='affective computing', max_results=20):
+def fetch_archive(key_words='affective computing', max_results=10):
     """ Main function to fetch archives, either from cache or from ArXiv. """
     if API_KEY is None or API_KEY == '':
         print("OPENAI_API_KEY environment variable not set.")
